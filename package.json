@@ -16,10 +16,13 @@
   },
   "scripts": {
     "postinstall": "bower install --quiet --config.interactive=false --allow-root && bower prune --allow-root",
-    "build": "gulp build",
+    "build-gulp": "gulp build",
     "dev": "gulp default",
     "quiet": "gulp quiet",
-    "debug": "gulp debug"
+    "debug": "gulp debug",
+    "serve": "cross-env HOST=0.0.0.0 PORT=3000 webpack-dev-server --hot --env development",
+    "build": "webpack --env production",
+    "start": "node server.js"
   },
   "dependencies": {
     "acl": "0.4.11",
@@ -73,6 +76,7 @@
   },
   "devDependencies": {
     "coveralls": "3.0.2",
+    "cross-env": "5.2.0",
     "del": "3.0.0",
     "dotenv": "6.0.0",
     "eslint": "5.4.0",
@@ -112,6 +116,10 @@
     "run-sequence": "2.2.1",
     "semver": "5.5.0",
     "should": "13.2.3",
-    "supertest": "3.1.0"
+    "supertest": "3.1.0",
+    "webpack": "4.20.2",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.1.9",
+    "webpack-merge": "4.1.4"
   }
 }
